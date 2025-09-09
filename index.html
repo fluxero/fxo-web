@@ -1,1 +1,110 @@
-123
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluxero</title>
+  <meta name="description" content="Clean energy, made abundant and widely adopted." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #0b0c0e;
+      --fg: #e9eef2;
+      --muted: #a9b2ba;
+      --card: #121417;
+      --accent: #5ac8fa;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #ffffff;
+        --fg: #0e1116;
+        --muted: #5b6470;
+        --card: #f7f8fa;
+        --accent: #0a84ff;
+      }
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display:flex;
+      min-height:100%;
+    }
+    .wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:1.75rem;
+      padding: 5vh 6vw;
+      width:100%;
+    }
+    .card{
+      max-width: 760px;
+      text-align:center;
+      background: color-mix(in oklab, var(--card) 88%, transparent);
+      border: 1px solid color-mix(in oklab, var(--fg) 18%, transparent);
+      border-radius: 20px;
+      padding: clamp(1.25rem, 2.5vw + 1rem, 2.25rem);
+      box-shadow: 0 10px 30px color-mix(in oklab, #000 12%, transparent);
+    }
+    img.logo{
+      width: clamp(100px, 16vw, 160px);
+      height: auto;
+      display:block;
+      margin: 0 auto;
+      filter: drop-shadow(0 2px 6px color-mix(in oklab, #000 25%, transparent));
+    }
+    h1{
+      margin: 0.25rem 0 0.5rem;
+      font-size: clamp(1.25rem, 1.2rem + 1.2vw, 1.75rem);
+      letter-spacing: 0.2px;
+      font-weight: 650;
+    }
+    p{
+      margin: 0.25rem 0;
+      line-height: 1.65;
+      font-size: clamp(0.98rem, 0.92rem + 0.4vw, 1.125rem);
+      color: var(--muted);
+    }
+    .footer{
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      opacity: 0.8;
+    }
+    .accent{
+      color: var(--accent);
+    }
+    /* Ensure nice look on very small screens */
+    @media (max-width: 380px){
+      .card{ padding: 1rem }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="logo.png" alt="Company logo" width="160" height="160" />
+    <section class="card" role="region" aria-labelledby="mission-title">
+      <h1 id="mission-title">Power, Reframed</h1>
+      <p>
+        
+Right now we only use a very small share of the energy that’s available to us. Most of what we rely on still comes from fuels that waste more than they give back. Yet the sunlight, wind and water around us hold far more clean power than we currently need. To put it in perspective, the water in Lake Windermere alone contains enough energy to power all human electricity use on Earth for around 10 billion years.      
+      </p>
+      <p>
+        
+Our mission is to bring more of that potential within reach — making clean energy not an expensive delicacy, but the foundation of everyday life. By massively increasing its availability and accelerating adoption, we aim for a future where power is abundant, reliable and shared fairly across society.      
+      
+      </p>
+    </section>
+    <div class="footer">© <span id="y"></span> Fluxero</div>
+  </main>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
