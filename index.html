@@ -6,99 +6,88 @@
   <title>Fluxero</title>
   <meta name="description" content="Clean energy, made abundant and widely adopted." />
   <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg: #0b0c0e;
-      --fg: #e9eef2;
-      --muted: #9c9c9c;
-      --card: #121417;
-      --accent: #5ac8fa;
-    }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg: #ffffff;
-        --fg: #0e1116;
-        --muted: #5b6470;
-        --card: #f7f8fa;
-        --accent: #0a84ff;
-      }
-    }
-    html,body{height:100%}
-    body{
-      margin:0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display:flex;
-      min-height:100%;
-    }
-    .wrap{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:1.75rem;
-      padding: 5vh 6vw;
-      width:100%;
-    }
-    .card{
-      max-width: 760px;
-      text-align:center;
-      background: color-mix(in oklab, var(--card) 88%, transparent);
-      border: 1px solid color-mix(in oklab, var(--fg) 18%, transparent);
-      border-radius: 20px;
-      padding: clamp(1.25rem, 2.5vw + 1rem, 2.25rem);
-      box-shadow: 0 10px 30px color-mix(in oklab, #000 12%, transparent);
-    }
 
-img.logo {
-  width: clamp(100px, 16vw, 160px);
-  height: auto;
-  display: block;
-  margin: 1rem auto 1.5rem; /* add top/bottom space */
-  padding: 0.5rem;          /* extra breathing room */
-  box-sizing: border-box;   /* include padding in width */
-  filter: drop-shadow(0 2px 6px color-mix(in oklab, #000 25%, transparent));
-}
-    
+<style>
+  :root{
+    --bg:#0b0c0e; --fg:#e9eef2; --muted:#9c9c9c; --card:#121417; --accent:#5ac8fa;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#ffffff; --fg:#0e1116; --muted:#5b6470; --card:#f7f8fa; --accent:#0a84ff; }
+  }
 
-    h1{
-      margin: 0.25rem 0 0.5rem;
-      font-size: clamp(1.25rem, 1.2rem + 1.2vw, 1.75rem);
-      letter-spacing: 0.2px;
-      font-weight: 650;
-      color: var(--muted);
-    }
-    p{
-      margin: 0.25rem 0;
-      line-height: 1.65;
-      font-size: clamp(0.98rem, 0.92rem + 0.4vw, 1.125rem);
-      color: var(--muted);
-    }
-    .footer{
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      opacity: 0.8;
-    }
-    .accent{
-      color: var(--accent);
-    }
-    /* Ensure nice look on very small screens */
-    @media (max-width: 380px){
-      .card{ padding: 1rem }
-    }
+  /* Keep it simple: no flex layout on body, no 100vh */
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
 
-    .divider {
-  border: none;
-  height: 1px;
-  width: 60%;
-  margin: 1.5rem auto;
-  background: color-mix(in oklab, var(--fg) 25%, transparent);
-}
-  </style>
+  /* Page container: just some top/side padding */
+  .wrap{
+    padding: 48px 6vw; /* flows from top like normal */
+    width:100%;
+  }
+
+  .card{
+    max-width:760px;
+    margin:0 auto;                /* center horizontally */
+    text-align:center;
+    background:color-mix(in oklab, var(--card) 88%, transparent);
+    border:1px solid color-mix(in oklab, var(--fg) 18%, transparent);
+    border-radius:20px;
+    padding: 24px clamp(16px, 2.5vw, 28px); /* comfortable, not cramped */
+    box-shadow:0 10px 30px color-mix(in oklab, #000 12%, transparent);
+    overflow:visible;              /* don’t clip shadows/images */
+  }
+
+  img.logo{
+    width: clamp(100px, 16vw, 160px);
+    height:auto;
+    display:block;
+    margin: 8px auto 18px;         /* balanced space above/below */
+    padding:8px;                   /* inner cushion around logo */
+    box-sizing:border-box;
+    filter: drop-shadow(0 2px 6px color-mix(in oklab, #000 25%, transparent));
+  }
+
+  h1{
+    margin:0.25rem 0 0.5rem;
+    font-size:clamp(1.25rem, 1.2rem + 1.2vw, 1.75rem);
+    letter-spacing:0.2px;
+    font-weight:650;
+    color:var(--muted);
+  }
+
+  p{
+    margin:0.25rem 0;
+    line-height:1.65;
+    font-size:clamp(0.98rem, 0.92rem + 0.4vw, 1.125rem);
+    color:var(--muted);
+  }
+
+  .divider{
+    border:none; height:1px; width:60%;
+    margin:1.5rem auto;
+    background:color-mix(in oklab, var(--fg) 25%, transparent);
+  }
+
+  .footer{
+    margin: 12px 6vw 24px;
+    font-size:0.9rem;
+    color:var(--muted);
+    opacity:0.8;
+    text-align:center;
+  }
+
+  @media (max-width:380px){
+    .card{ padding:16px }
+  }
+</style>
+
+  
 </head>
 <body>
   <main class="wrap">
