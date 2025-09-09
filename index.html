@@ -52,13 +52,18 @@
       padding: clamp(1.25rem, 2.5vw + 1rem, 2.25rem);
       box-shadow: 0 10px 30px color-mix(in oklab, #000 12%, transparent);
     }
-    img.logo{
-      width: clamp(100px, 16vw, 160px);
-      height: auto;
-      display:block;
-      margin: 0 auto;
-      filter: drop-shadow(0 2px 6px color-mix(in oklab, #000 25%, transparent));
-    }
+
+img.logo {
+  width: clamp(100px, 16vw, 160px);
+  height: auto;
+  display: block;
+  margin: 1rem auto 1.5rem; /* add top/bottom space */
+  padding: 0.5rem;          /* extra breathing room */
+  box-sizing: border-box;   /* include padding in width */
+  filter: drop-shadow(0 2px 6px color-mix(in oklab, #000 25%, transparent));
+}
+    
+
     h1{
       margin: 0.25rem 0 0.5rem;
       font-size: clamp(1.25rem, 1.2rem + 1.2vw, 1.75rem);
