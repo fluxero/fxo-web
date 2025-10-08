@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxero Pilot</title>
+    <link rel="icon" type="image/png" href="assets/fluxero-google-sm.png" sizes="32x32">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="tailwind.config.js"></script>
+</head>
+<body class="bg-black text-white font-inter overflow-x-hidden">
+    <div class="sidebar fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-50">
+        <div class="sidebar-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300" data-section="hero"></div>
+        <div class="sidebar-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300" data-section="overview"></div>
+        <div class="sidebar-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300" data-section="progress"></div>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md p-4 flex justify-between items-center z-50">
+        <img src="assets/fluxero-google-sm.png" alt="Fluxero Logo" class="h-8">
+        <ul class="hidden md:flex space-x-6">
+            <li><a href="index.html#mission" class="text-white hover:text-teal-400 transition">Mission</a></li>
+            <li><a href="pilot.html" class="text-white hover:text-teal-400 transition">Pilot</a></li>
+            <li><a href="virtual.html" class="text-white hover:text-teal-400 transition">Virtual Pilot</a></li>
+        </ul>
+        <div class="hamburger md:hidden text-3xl cursor-pointer">☰</div>
+    </nav>
+
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed parallax-bg" style="background-image: url('assets/pem-electrolyzer.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4">Fluxero Pilot</h1>
+            <h2 class="text-3xl md:text-5xl font-light mb-8">Tees Valley Innovation</h2>
+        </div>
+    </section>
+
+    <section id="overview" class="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed parallax-bg" style="background-image: url('assets/exolum-tees-valley-2.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
+        <div class="relative z-10 max-w-4xl text-right md:text-right">
+            <h3 class="text-4xl md:text-6xl font-bold mb-6">Overview</h3>
+            <p class="text-xl md:text-2xl leading-relaxed">Our 1 MW Tees Valley site, co-located with industrial operations, leverages second-life solar panels to feed variable-input electrolysers. We aim to produce 50 tonnes of green hydrogen annually, with fuel cells delivering 80% uptime for backup power. Deployment is slated for Q2 2026, with a £1.5M capex targeting a 3-year breakeven.</p>
+        </div>
+    </section>
+
+    <section id="progress" class="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed parallax-bg" style="background-image: url('assets/data-center.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
+        <div class="relative z-10 max-w-4xl text-left md:text-left">
+            <h3 class="text-4xl md:text-6xl font-bold mb-6">Progress & Partners</h3>
+            <p class="text-xl md:text-2xl leading-relaxed">We’re 60% through site validation, with soil tests confirming stability for a 5-acre footprint. Partnerships with SolarCycle (panel recycling) and Siemens (electrolyser tech) are inked, aiming for 200 kW initial output by Q1 2026. Regulatory approval is on track, with a £300K grant application pending.</p>
+        </div>
+    </section>
+
+    <footer class="bg-black/90 p-8 text-center">
+        <p>&copy; 2025 Fluxero. Incubated at Durham Venture School. <a href="https://linkedin.com/company/fluxero" class="text-teal-400 hover:text-teal-500">LinkedIn</a> | <a href="mailto:contact@fluxero.energy" class="text-teal-400 hover:text-teal-500">Contact</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
