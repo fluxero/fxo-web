@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluxero — Investor &amp; Partner Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./fonts.css" rel="stylesheet">
+<style>
+  deck-stage:not(:defined){visibility:hidden}
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  :root{
+    /* palette */
+    --navy:#0B1E30;
+    --navy-2:#0F2840;
+    --navy-3:#13314f;
+    --ink:#11283B;
+    --ink-soft:#4C6378;
+    --paper:#EEF2F2;
+    --paper-2:#F7FAF9;
+    --mist:#8FA6B5;
+    --line:rgba(17,40,59,0.14);
+    --line-d:rgba(255,255,255,0.16);
+    --teal:#19A79A;
+    --blue:#2C7CC0;
+    --green:#36B26B;
+    --accent:#19A79A;
+    --accent-grad:linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%);
+
+    /* type scale (1920x1080) */
+    --type-display:88px;
+    --type-hero:118px;
+    --type-title:56px;
+    --type-subtitle:36px;
+    --type-body:28px;
+    --type-small:24px;
+    --type-eyebrow:24px;
+
+    /* spacing */
+    --pad-x:112px;
+    --pad-top:88px;
+    --pad-bottom:80px;
+    --gap-title:34px;
+
+    --ff-display:"Newsreader",Georgia,serif;
+    --ff-sans:"IBM Plex Sans",system-ui,sans-serif;
+    --ff-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+
+  deck-stage{font-family:var(--ff-sans);}
+
+  section{
+    display:flex;
+    flex-direction:column;
+    padding:var(--pad-top) var(--pad-x) var(--pad-bottom);
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .s-paper{background:var(--paper);color:var(--ink);}
+  .s-paper-2{background:var(--paper-2);color:var(--ink);}
+  .s-navy{
+    background:
+      radial-gradient(1100px 700px at 88% -8%, rgba(44,124,192,0.20), transparent 60%),
+      radial-gradient(900px 600px at -6% 108%, rgba(25,167,154,0.16), transparent 60%),
+      var(--navy);
+    color:#fff;
+  }
+
+  /* shared bits */
+  .eyebrow{
+    font-family:var(--ff-mono);
+    font-size:var(--type-eyebrow);
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  .s-navy .eyebrow{color:var(--mist);}
+  .accent-bar{height:5px;width:128px;border-radius:3px;background:var(--accent-grad);}
+  h1,h2{font-family:var(--ff-display);font-weight:500;line-height:1.04;letter-spacing:-0.01em;}
+  .title{font-size:var(--type-title);}
+  .display{font-size:var(--type-display);}
+  .lede{font-size:var(--type-subtitle);line-height:1.34;font-weight:400;color:var(--ink-soft);max-width:24ch;}
+  .s-navy .lede{color:#C7D6E0;}
+  .body{font-size:var(--type-body);line-height:1.46;}
+  .small{font-size:var(--type-small);line-height:1.4;}
+  .src{font-family:var(--ff-mono);font-size:var(--type-small);color:var(--ink-soft);letter-spacing:.01em;}
+  .s-navy .src{color:var(--mist);}
+  .grad-txt{background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .head{display:flex;flex-direction:column;gap:18px;}
+  .slidefoot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:34px;}
+  .pageno{font-family:var(--ff-mono);font-size:var(--type-small);color:var(--ink-soft);letter-spacing:.04em;}
+  .s-navy .pageno{color:var(--mist);}
+
+  .num{font-family:var(--ff-display);font-weight:500;line-height:.92;letter-spacing:-0.02em;}
+
+  /* placeholder image */
+  .ph{
+    position:relative;border-radius:8px;overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg, rgba(25,167,154,0.10) 0 2px, transparent 2px 16px),
+      var(--paper-2);
+    border:1px solid var(--line);
+    display:flex;align-items:flex-end;
+  }
+  .s-navy .ph{background:repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 16px), rgba(255,255,255,0.03);border-color:var(--line-d);}
+  .ph .ph-tag{font-family:var(--ff-mono);font-size:var(--type-small);color:var(--ink-soft);padding:18px 22px;letter-spacing:.04em;}
+  .s-navy .ph .ph-tag{color:var(--mist);}
+
+  /* No entrance animation: content is always visible — keeps print, PDF and PPTX exports clean. */
+
+  /* digital–physical twin loop */
+  .twinloop{display:grid;grid-template-columns:1fr 1.45fr 1fr;align-items:stretch;gap:0;margin-top:26px;}
+  .tl-node{border:1px solid var(--line-d);border-radius:14px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,0.025);justify-content:center;}
+  .tl-mid{display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 30px;}
+  .tl-flow{display:flex;flex-direction:column;gap:9px;}
+  .tl-lbl{font-family:var(--ff-mono);font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);text-align:center;}
+  .tl-arrow{display:flex;align-items:center;}
+  .tl-line{flex:1;height:3px;border-radius:2px;background:var(--accent-grad);}
+  .tl-head{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;}
+  .tl-arrow.r .tl-head{border-left:14px solid var(--blue);}
+  .tl-arrow.l .tl-head{border-right:14px solid var(--green);}
+  .tl-core{align-self:center;border:1px solid var(--teal);background:rgba(25,167,154,0.12);border-radius:999px;padding:13px 26px;font-family:var(--ff-mono);font-size:20px;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:center;line-height:1.32;}
+  .tool{border-top:2px solid var(--line-d);padding-top:18px;display:flex;flex-direction:column;gap:8px;}
+</style>
+<style id="deck-stage-print-page">@page { size: 1920px 1080px; margin: 0; } @media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } *, *::before, *::after { animation-delay: -99s !important; animation-duration: .001s !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; animation-play-state: running !important; transition-duration: 0s !important; } }</style></head>
+<body>
+<deck-stage width="1920" height="1080" style="--deck-rail-w: 188px;"><template shadowrootmode="open"><style>
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* connectedCallback holds this until document.fonts.ready (capped 2s) so
+     * the first visible paint has the deck's real typography + final rail
+     * layout. opacity (not visibility) so the active slide can't un-hide
+     * itself via the ::slotted([data-deck-active]) visibility:visible rule.
+     * Only the stage/rail hide — the black :host background stays, so the
+     * iframe doesn't flash the page's default white. */
+    :host([data-fonts-pending]) .stage,
+    :host([data-fonts-pending]) .rail { opacity: 0; pointer-events: none; }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .canvas {
+      position: relative;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Thumbnail rail ──────────────────────────────────────────────────
+       Fixed column on the left; each thumbnail is a static deep-clone of
+       the light-DOM slide scaled into a 16:9 (or design-aspect) frame. The
+       stage re-fits around it (see _fit); hidden during present / noscale
+       / print so capture geometry and fullscreen output are unchanged. */
+    .rail {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--deck-rail-w, 188px);
+      background: #141414;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2147482500;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.18) transparent;
+    }
+    .rail::-webkit-scrollbar { width: 8px; }
+    .rail::-webkit-scrollbar-track { background: transparent; margin: 2px; }
+    .rail::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.18);
+      border-radius: 4px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    .rail::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.28);
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    :host([no-rail]) .rail,
+    :host([noscale]) .rail { display: none; }
+    .rail[data-presenting] { display: none; }
+    @media (max-width: 640px) {
+      .rail, .rail-resize { display: none; }
+    }
+    /* User-driven show/hide (the TweaksPanel toggle) slides instead of
+       popping. Transitions are gated on :host([data-rail-anim]) — set only
+       for the 200ms around the toggle — so window-resize and rail-width
+       drag (which also call _fit) don't lag behind the cursor. */
+    .rail[data-user-hidden] { transform: translateX(-100%); }
+    :host([data-rail-anim]) .rail { transition: transform 200ms cubic-bezier(.3,.7,.4,1); }
+    :host([data-rail-anim]) .stage { transition: left 200ms cubic-bezier(.3,.7,.4,1); }
+    :host([data-rail-anim]) .canvas { transition: transform 200ms cubic-bezier(.3,.7,.4,1); }
+    /* transition shorthand replaces rather than merges — repeat the base
+       .overlay opacity/transform/filter transitions so visibility changes
+       during the 200ms toggle window still fade instead of popping. */
+    :host([data-rail-anim]) .overlay {
+      transition: margin-left 200ms cubic-bezier(.3,.7,.4,1),
+                  opacity 260ms ease,
+                  transform 260ms cubic-bezier(.2,.8,.2,1),
+                  filter 260ms ease;
+    }
+
+    .thumb {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .thumb .num {
+      width: 16px;
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 500;
+      text-align: right;
+      color: rgba(255,255,255,0.55);
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+    .thumb .frame {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      aspect-ratio: var(--deck-aspect);
+      background: #fff;
+      border-radius: 4px;
+      outline: 2px solid transparent;
+      outline-offset: 0;
+      overflow: hidden;
+      transition: outline-color 120ms ease;
+    }
+    .thumb:hover .frame { outline-color: rgba(255,255,255,0.25); }
+    .thumb { outline: none; }
+    .thumb:focus-visible .frame { outline-color: rgba(255,255,255,0.5); }
+    .thumb[data-current] .num { color: #fff; }
+    .thumb[data-current] .frame { outline-color: #D97757; }
+    .thumb[data-dragging] { opacity: 0.35; }
+    .thumb::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      right: 0;
+      height: 3px;
+      border-radius: 2px;
+      background: #D97757;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .thumb[data-drop="before"]::before { top: -8px; opacity: 1; }
+    .thumb[data-drop="after"]::before { bottom: -8px; opacity: 1; }
+    .thumb[data-skip] .frame { opacity: 0.35; }
+    .thumb[data-skip] .frame::after {
+      content: 'Skipped';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .ctxmenu {
+      position: fixed;
+      min-width: 150px;
+      padding: 4px;
+      background: #242424;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 7px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+      z-index: 2147483100;
+      display: none;
+      font-size: 12px;
+    }
+    .ctxmenu[data-open] { display: block; }
+    .ctxmenu button {
+      display: block;
+      width: 100%;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #e8e8e8;
+      font: inherit;
+      text-align: left;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .ctxmenu button:hover:not(:disabled) { background: rgba(255,255,255,0.08); }
+    .ctxmenu button:disabled { opacity: 0.35; cursor: default; }
+    .ctxmenu hr {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 4px 2px;
+    }
+
+    .rail-resize {
+      position: fixed;
+      left: calc(var(--deck-rail-w, 188px) - 3px);
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      cursor: col-resize;
+      z-index: 2147482600;
+      touch-action: none;
+    }
+    .rail-resize:hover,
+    .rail-resize[data-dragging] { background: rgba(255,255,255,0.12); }
+    :host([no-rail]) .rail-resize,
+    :host([noscale]) .rail-resize,
+    .rail[data-presenting] + .rail-resize,
+    .rail[data-user-hidden] + .rail-resize { display: none; }
+
+    /* Delete-confirm popup — matches the SPA's ConfirmDialog layout
+       (title + message body, depressed footer with Cancel / Delete). */
+    .confirm-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2147483200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .confirm-backdrop[data-open] { display: flex; }
+    .confirm {
+      width: 320px;
+      max-width: calc(100vw - 32px);
+      background: #2a2a2a;
+      color: #e8e8e8;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      overflow: hidden;
+      font-family: inherit;
+      animation: deck-confirm-in 0.18s ease;
+    }
+    @keyframes deck-confirm-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .confirm .body { padding: 20px 20px 16px; }
+    .confirm .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .confirm .msg { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.65); }
+    .confirm .footer {
+      padding: 14px 20px;
+      background: #1f1f1f;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .confirm button {
+      appearance: none;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .confirm .cancel {
+      background: transparent;
+      border: 0;
+      color: rgba(255,255,255,0.8);
+    }
+    .confirm .cancel:hover { background: rgba(255,255,255,0.08); }
+    .confirm .danger {
+      background: #c96442;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #fff;
+      box-shadow: 0 1px 3px rgba(166,50,68,0.3), 0 2px 6px rgba(166,50,68,0.18);
+    }
+    .confirm .danger:hover { background: #b5563a; }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      /* :last-child alone isn't enough once data-deck-skip hides the
+         trailing slide(s) — the last *visible* slide still carries
+         break-after:page and prints a blank sheet. _markLastVisible()
+         maintains data-deck-last-visible on the last non-skipped slide. */
+      ::slotted(*:last-child),
+      ::slotted([data-deck-last-visible]) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      ::slotted([data-deck-skip]) { display: none !important; }
+      .overlay, .rail, .rail-resize, .ctxmenu, .confirm-backdrop { display: none !important; }
+    }
+  </style><div class="rail export-hidden" data-omelette-chrome="" style="--deck-aspect: 1920/1080;" data-presenting="" inert=""><div class="thumb" tabindex="0" draggable="true"><div class="num">1</div><div class="frame"></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">2</div><div class="frame"></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">3</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="The Data" data-screen-label="03 The Data" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">02 — The Data</div>
+      <h2 class="title" style="max-width:22ch;">The scale of the waste is no longer marginal.</h2>
+    </div>
+
+    <div class="anim" style="margin-top:50px;display:flex;align-items:baseline;gap:40px;flex-wrap:wrap;">
+      <div class="num grad-txt" style="font-size:var(--type-hero);">50+ TWh</div>
+      <div class="lede" style="max-width:30ch;margin-bottom:14px;">of clean power curtailed worldwide in 2024 — roughly a whole country's electricity for a year.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border-top:1px solid var(--line-d);">
+      <div style="padding:34px 40px 6px 0;border-right:1px solid var(--line-d);">
+        <div class="num" style="font-size:62px;color:#fff;">€7.2bn</div>
+        <div class="small" style="color:var(--mist);margin-top:14px;max-width:22ch;">record renewable curtailment cost across seven European countries in 2024.</div>
+      </div>
+      <div style="padding:34px 40px 6px 40px;border-right:1px solid var(--line-d);">
+        <div class="num" style="font-size:62px;color:#fff;">~20 TWh</div>
+        <div class="small" style="color:var(--mist);margin-top:14px;max-width:22ch;">of US wind &amp; solar curtailed in 2024 — records in four of seven grid regions.</div>
+      </div>
+      <div style="padding:34px 0 6px 40px;">
+        <div class="num" style="font-size:62px;color:#fff;">20%+</div>
+        <div class="small" style="color:var(--mist);margin-top:14px;max-width:22ch;">of wind &amp; solar curtailed in Brazil's renewable-rich northeast in 2025.</div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA; enline / Beyond Fossil Fuels; Amperon / US EIA (2024–25)</div>
+      <div class="pageno" style="color:var(--mist)">03</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">4</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-paper" data-label="Market" data-screen-label="04 Market" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="3" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">03 — The Market</div>
+      <h2 class="title" style="max-width:26ch;">Clean hydrogen demand is global, mandated, and unmet.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:54px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <p class="body" style="max-width:44ch;">The world already runs on hydrogen — almost entirely the dirty kind. Replacing it is a like-for-like market that exists today, before counting new demand in steel, shipping and transport. Roughly 50% of global food supply depends on nitrogen fertilisers derived from hydrogen — making green hydrogen a direct lever on food security.</p>
+        <p class="body" style="max-width:44ch;color:var(--ink-soft);">Governments have set hard low-carbon targets and have no cheap way to supply them. The market exists; the affordable clean supply does not.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">~100 Mt</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">global hydrogen demand in 2024</div>
+        </div>
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">95%+</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">still made from fossil fuels — the displacement opportunity</div>
+        </div>
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">&lt;1 → 49 Mt</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">low-emissions H₂ today vs announced for 2030</div>
+        </div>
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">~520 GW</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">of electrolysis capacity announced worldwide</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA Global Hydrogen Review 2024</div>
+      <div class="pageno">04</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">5</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-paper-2" data-label="Solution" data-screen-label="05 Solution" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">04 — The Solution</div>
+      <h2 class="title" style="max-width:26ch;">Fluxero puts the plant where the energy is wasted.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:72px;margin-top:48px;align-items:stretch;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 56px;">
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:46px;min-width:1.6ch;">1</div>
+          <div>
+            <div class="body" style="font-weight:600;">Co-locate at constrained sites</div>
+            <div class="small" style="color:var(--ink-soft);margin-top:8px;">A Small Modular Hydrogen Plant is installed beside wind, solar or hydro that is routinely curtailed — no new grid connection required.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:46px;min-width:1.6ch;">2</div>
+          <div>
+            <div class="body" style="font-weight:600;">Capture power that would be switched off</div>
+            <div class="small" style="color:var(--ink-soft);margin-top:8px;">We take the surplus electricity the grid cannot absorb — the cheapest electron there is, because the alternative is discarding it.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:46px;min-width:1.6ch;">3</div>
+          <div>
+            <div class="body" style="font-weight:600;">Electrolyse on-site, deliver to offtakers</div>
+            <div class="small" style="color:var(--ink-soft);margin-top:8px;">Green hydrogen is produced on-site and supplied to industry and mobility customers — modular units that replicate site by site.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Fluxero — Small Modular Hydrogen Plants, deployed at the source worldwide</div>
+      <div class="pageno">05</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">6</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="Economics" data-screen-label="06 Economics" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">05 — Unit Economics</div>
+      <h2 class="title" style="max-width:26ch;">Free input electricity changes the economics of hydrogen.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:84px;margin-top:50px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p class="body" style="max-width:40ch;color:#D6E2EA;">Electricity is 60–70% of the cost of making hydrogen. When the input is curtailed power that would otherwise be wasted, that cost collapses.</p>
+        <div>
+          <div class="num grad-txt" style="font-size:96px;">Below $2<span style="font-size:42px;font-family:var(--ff-sans);font-weight:500;">/kg</span></div>
+          <div class="small" style="color:var(--mist);margin-top:6px;max-width:38ch;">the widely-cited competitiveness threshold — reachable when the dominant input cost is near zero, versus $4–12/kg for conventional green hydrogen.</div>
+        </div>
+      </div>
+
+      <!-- cost comparison bars -->
+      <div style="display:flex;flex-direction:column;gap:36px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
+            <span class="small" style="color:var(--mist);white-space:nowrap;">Conventional green H₂</span>
+            <span class="body" style="font-weight:600;">$4–12/kg</span>
+          </div>
+          <div style="height:34px;border-radius:6px;background:rgba(255,255,255,0.12);width:100%;"></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
+            <span class="small" style="color:#fff;white-space:nowrap;">Fluxero — curtailed input</span>
+            <span class="body" style="font-weight:600;">below $2/kg</span>
+          </div>
+          <div style="height:34px;border-radius:6px;background:var(--accent-grad);width:34%;"></div>
+        </div>
+        <div style="border-top:1px solid var(--line-d);padding-top:24px;display:flex;gap:40px;">
+          <div><div class="num" style="font-size:44px;color:#fff;">No queue</div><div class="small" style="color:var(--mist);margin-top:6px;max-width:18ch;">no grid-connection wait</div></div>
+          <div><div class="num" style="font-size:44px;color:#fff;">Modular</div><div class="small" style="color:var(--mist);margin-top:6px;max-width:18ch;">replicates site by site</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA; Belfer Center hydrogen cost ranges (2023–24). Figures illustrative.</div>
+      <div class="pageno" style="color:var(--mist)">06</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">7</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-paper" data-label="Revenue" data-screen-label="07 Revenue" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">06 — Revenue Potential</div>
+      <h2 class="title" style="max-width:26ch;">Multiple revenue lines from a single plant.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px;">
+      <div style="background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:34px 30px;display:flex;flex-direction:column;gap:14px;">
+        <div class="eyebrow" style="font-size:24px;letter-spacing:.16em;">Primary</div>
+        <div class="body" style="font-weight:600;">Hydrogen sales</div>
+        <div class="small" style="color:var(--ink-soft);">Green H₂ supplied to industry and mobility offtakers under contract.</div>
+      </div>
+      <div style="background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:34px 30px;display:flex;flex-direction:column;gap:14px;">
+        <div class="eyebrow" style="font-size:24px;letter-spacing:.16em;">Grid value</div>
+        <div class="body" style="font-weight:600;">Balancing &amp; curtailment</div>
+        <div class="small" style="color:var(--ink-soft);">Absorbing surplus power that the system operator would otherwise pay to discard.</div>
+      </div>
+      <div style="background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:34px 30px;display:flex;flex-direction:column;gap:14px;">
+        <div class="eyebrow" style="font-size:24px;letter-spacing:.16em;">Emerging</div>
+        <div class="body" style="font-weight:600;">Certificates &amp; carbon</div>
+        <div class="small" style="color:var(--ink-soft);">Low-carbon hydrogen and emissions credits as policy frameworks mature.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:52px;margin-top:46px;border-top:1px solid var(--line);padding-top:40px;">
+      <div><div class="num grad-txt" style="font-size:66px;">below $2/kg</div><div class="small" style="color:var(--ink-soft);margin-top:8px;">production cost</div></div>
+      <div class="num" style="font-size:46px;color:var(--ink-soft);">→</div>
+      <div><div class="num" style="font-size:66px;">$4–6/kg</div><div class="small" style="color:var(--ink-soft);margin-top:8px;">indicative green H₂ market price</div></div>
+      <div style="margin-left:auto;max-width:30ch;"><div class="body" style="font-weight:600;">A wide, defensible spread per kilogram — and every new site multiplies it.</div></div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Indicative figures for illustration; market prices vary by offtake and region.</div>
+      <div class="pageno">07</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">8</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="Physical AI" data-screen-label="08 Physical AI" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">07 — Physical AI</div>
+      <h2 class="title" style="max-width:22ch;">The moat isn't the hardware. It's Physical AI.</h2>
+    </div>
+
+    <p class="body" style="max-width:72ch;margin-top:24px;color:#D6E2EA;">The gap between software and the physical world is the hardest problem in technology — the same frontier reshaping robotics. Fluxero is building genuine technique, expertise and IP in <span style="color:#fff;font-weight:600;">Physical AI</span>: machines that sense, decide and act in the real world. That is what makes us defensible — not the steel, but the intelligence inside it.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:28px;margin-top:42px;align-items:stretch;">
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:28px 28px;display:flex;flex-direction:column;gap:12px;">
+        <div class="eyebrow" style="color:var(--teal);">Force 01</div>
+        <div class="body" style="font-weight:600;">AI is starving for power</div>
+        <div class="small" style="color:#C7D6E0;margin-top:auto;">Compute demand is exploding far faster than grids and datacentres can supply.</div>
+      </div>
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:28px 28px;display:flex;flex-direction:column;gap:12px;">
+        <div class="eyebrow" style="color:var(--teal);">Force 02</div>
+        <div class="body" style="font-weight:600;">Clean power is wasted</div>
+        <div class="small" style="color:#C7D6E0;margin-top:auto;">Record volumes of renewable energy are curtailed and thrown away every year.</div>
+      </div>
+      <div style="border:1px solid var(--teal);border-radius:12px;padding:28px 30px;display:flex;flex-direction:column;gap:12px;background:rgba(25,167,154,0.10);">
+        <div class="eyebrow grad-txt">Fluxero closes the loop</div>
+        <div class="body" style="font-weight:600;">A self-optimising plant-robot turns the waste into hydrogen.</div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">It captures the curtailed power, makes versatile green hydrogen, and routes energy into the pockets the grid can't reach — getting smarter every cycle.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;align-items:flex-start;gap:26px;border-top:1px solid var(--line-d);padding-top:28px;">
+      <div class="eyebrow" style="color:var(--mist);white-space:nowrap;padding-top:4px;">The plant-robot</div>
+      <div class="small" style="color:#C7D6E0;max-width:96ch;">Each Small Modular Hydrogen Plant runs on onboard edge AI — it senses, decides and optimises autonomously, without a human in the loop. The Physical-AI wave transforming industrial robotics, pointed squarely at energy.</div>
+    </div>
+
+    <div class="slidefoot" style="margin-top:30px;">
+      <div class="src">Physical AI · onboard edge compute · in active development</div>
+      <div class="pageno" style="color:var(--mist)">08</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">9</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="Digital–Physical Twin" data-screen-label="09 Digital–Physical Twin" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">08 — The Digital–Physical Twin</div>
+      <h2 class="title" style="max-width:24ch;">Every plant makes the next one smarter.</h2>
+    </div>
+
+    <p class="body" style="max-width:78ch;margin-top:14px;color:#D6E2EA;">A live digital twin simulates and commands the plant; the plant-robot feeds real-world data back; the twin sharpens itself and re-optimises the plant. Each loop deepens a proprietary dataset — compounding IP that improves Fluxero's models and every future SMHP.</p>
+
+    <div class="twinloop">
+      <div class="tl-node">
+        <div class="eyebrow" style="color:var(--teal);">Digital</div>
+        <div class="body" style="font-weight:600;">The Twin</div>
+        <div class="small" style="color:#C7D6E0;">A live model of the entire site — predicting output before a bolt is turned.</div>
+      </div>
+      <div class="tl-mid">
+        <div class="tl-flow">
+          <div class="tl-lbl">simulate · command · optimise</div>
+          <div class="tl-arrow r"><div class="tl-line"></div><div class="tl-head"></div></div>
+        </div>
+        <div class="tl-core"><span>Compounding<br>dataset &amp; IP</span></div>
+        <div class="tl-flow">
+          <div class="tl-arrow l"><div class="tl-head"></div><div class="tl-line"></div></div>
+          <div class="tl-lbl">sense · measure · feed back</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="eyebrow" style="color:var(--teal);">Physical</div>
+        <div class="body" style="font-weight:600;">The Plant-Robot</div>
+        <div class="small" style="color:#C7D6E0;">Onboard edge AI — it senses, decides and acts on the real site, autonomously.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;">
+      <div class="eyebrow" style="color:var(--mist);">The Physical AI stack</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:16px;">
+        <div class="tool">
+          <div class="eyebrow" style="color:var(--teal);font-size:24px;">01 — Digital twin</div>
+          <div class="body" style="font-weight:600;">Model the whole site online</div>
+          <div class="small" style="color:#C7D6E0;">Accurate output predictions that de-risk deployment and underwrite our projections.</div>
+        </div>
+        <div class="tool">
+          <div class="eyebrow" style="color:var(--teal);font-size:24px;">02 — Geospatial engine</div>
+          <div class="body" style="font-weight:600;">Find the best sites on Earth</div>
+          <div class="small" style="color:#C7D6E0;">Weighs curtailment, resource, demand and logistics to pinpoint where each plant pays off.</div>
+        </div>
+        <div class="tool">
+          <div class="eyebrow" style="color:var(--teal);font-size:24px;">03 — Hydrogen Lake</div>
+          <div class="body" style="font-weight:600;">Stay ahead of the field</div>
+          <div class="small" style="color:#C7D6E0;">A unified base of the world's hydrogen patents, research and science — our intelligence layer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot" style="margin-top:auto;">
+      <div class="src">Digital–physical twin · compounding IP · in active development</div>
+      <div class="pageno" style="color:var(--mist)">09</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">10</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-paper" data-label="Traction" data-screen-label="10 Traction" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">09 — Traction</div>
+      <h2 class="title" style="max-width:26ch;">What we have built, and what is next.</h2>
+    </div>
+
+    <div style="display:flex;gap:0;margin-top:64px;align-items:stretch;">
+      <div style="flex:1;padding-right:36px;border-right:1px solid var(--line);">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Done</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Software foundations laid</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Built the foundations for all three platforms.</div>
+      </div>
+      <div style="flex:1;padding:0 36px;border-right:1px solid var(--line);">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Done</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Funding secured</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Backed by leading accelerator programmes.</div>
+      </div>
+      <div style="flex:1;padding:0 36px;border-right:1px solid var(--line);">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Done</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Pilot site secured</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Land agreed to validate our first pilot.</div>
+      </div>
+      <div style="flex:1;padding-left:36px;">
+        <div class="eyebrow" style="font-size:24px;">In progress</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Physical pilot</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Validating the plant on the secured site.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;align-items:center;gap:36px;border-top:1px solid var(--line);padding-top:36px;">
+      <div class="eyebrow" style="font-size:24px;color:var(--ink-soft);">Next</div>
+      <div class="body" style="font-weight:600;max-width:52ch;">First commercial site, with offtake agreements in place — turning a validated pilot into a repeatable, financeable asset.</div>
+    </div>
+
+    <div class="slidefoot" style="padding-top:24px;">
+      <div class="src">Stage: prototype &amp; software foundations complete · physical pilot in progress</div>
+      <div class="pageno">10</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">11</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="Selected By" data-screen-label="11 Selected By" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">10 — Backing</div>
+      <h2 class="title" style="max-width:26ch;">Selected by world-class ecosystems.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:56px;">
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:42px 36px;display:flex;flex-direction:column;gap:18px;">
+        <div style="font-family:var(--ff-sans);font-weight:700;font-size:38px;">NVIDIA<span style="font-weight:400;color:var(--mist);"> Inception</span></div>
+        <div class="accent-bar" style="width:84px;"></div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">AI compute and engineering resources powering our digital-twin and data platforms.</div>
+      </div>
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:42px 36px;display:flex;flex-direction:column;gap:18px;">
+        <div style="font-family:var(--ff-sans);font-weight:700;font-size:38px;">Barclays<span style="font-weight:400;color:var(--mist);"> Eagle Labs</span></div>
+        <div class="accent-bar" style="width:84px;"></div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">Scale-up support, investor access and the financial network to deploy capital-efficient infrastructure.</div>
+      </div>
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:42px 36px;display:flex;flex-direction:column;gap:18px;">
+        <div style="font-family:var(--ff-sans);font-weight:700;font-size:38px;">Google<span style="font-weight:400;color:var(--mist);"> for Startups</span></div>
+        <div class="accent-bar" style="width:84px;"></div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">Cloud infrastructure, mentorship and reach to build and scale our software.</div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Programme participation. Logos belong to their respective owners.</div>
+      <div class="pageno" style="color:var(--mist)">11</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">12</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-paper" data-label="Advantage" data-screen-label="12 Advantage" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">11 — Unfair Advantage</div>
+      <h2 class="title" style="max-width:24ch;">Why Fluxero is hard to copy.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px 64px;margin-top:50px;">
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">01</div>
+        <div><div class="body" style="font-weight:600;">Plug into the waste, not the grid</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">At-source siting sidesteps the multi-year grid-connection queue that blocks competitors.</div></div>
+      </div>
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">02</div>
+        <div><div class="body" style="font-weight:600;">Modular &amp; capital-light</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">A standard unit replicates across hundreds of constrained sites — each a financeable asset.</div></div>
+      </div>
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">03</div>
+        <div><div class="body" style="font-weight:600;">A proprietary data layer</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">The Hydrogen Lake compounds: better siting, operations and demand intelligence over time.</div></div>
+      </div>
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">04</div>
+        <div><div class="body" style="font-weight:600;">Timing on our side</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">Curtailment is accelerating on every major grid worldwide — a first-mover into a widening, global problem.</div></div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">fluxero.uk</div>
+      <div class="pageno">12</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true"><div class="num">13</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="Plan" data-screen-label="13 Plan" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div class="head">
+      <div class="eyebrow">12 — Business Plan &amp; Finances</div>
+      <h2 class="title" style="max-width:24ch;">Prove one, then replicate.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:54px;">
+      <div style="display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-d);padding-top:26px;">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Now</div>
+        <div class="body" style="font-weight:600;">Pilot &amp; validate</div>
+        <div class="small" style="color:var(--mist);max-width:30ch;">Run the pilot plant, lock in real-world LCOH and uptime data.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-d);padding-top:26px;">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">12–18 months</div>
+        <div class="body" style="font-weight:600;">First commercial site</div>
+        <div class="small" style="color:var(--mist);max-width:30ch;">Deploy at a constrained site with offtake agreements signed.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-d);padding-top:26px;">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Scale</div>
+        <div class="body" style="font-weight:600;">Fleet rollout</div>
+        <div class="small" style="color:var(--mist);max-width:30ch;">Replicate modular plants across constrained sites worldwide.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;gap:64px;align-items:flex-end;border-top:1px solid var(--line-d);padding-top:36px;">
+      <div style="max-width:46ch;">
+        <div class="body" style="font-weight:600;color:#fff;">The financial model is repetition, not one big bet.</div>
+        <div class="small" style="color:var(--mist);margin-top:10px;">Each plant is a standard, capital-light, individually financeable unit. Margins are protected by an input cost near zero; growth comes from adding sites, not reinventing the asset.</div>
+      </div>
+      <div style="margin-left:auto;text-align:right;">
+        <div class="small" style="color:var(--mist);">Currently engaging investors &amp; partners</div>
+        <div class="body grad-txt" style="font-weight:600;margin-top:6px;">to fund first commercial deployment.</div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Forward-looking plan; subject to pilot results and funding.</div>
+      <div class="pageno" style="color:var(--mist)">13</div>
+    </div>
+  </section></template></div></div></div><div class="thumb" tabindex="0" draggable="true" data-current=""><div class="num">14</div><div class="frame"><div style="position: absolute; inset: 0px; --navy: #0B1E30; --navy-2: #0F2840; --navy-3: #13314f; --ink: #11283B; --ink-soft: #4C6378; --paper: #EEF2F2; --paper-2: #F7FAF9; --mist: #8FA6B5; --line: rgba(17,40,59,0.14); --line-d: rgba(255,255,255,0.16); --teal: #19A79A; --blue: #2C7CC0; --green: #36B26B; --accent: #19A79A; --accent-grad: linear-gradient(115deg,#36B26B 0%,#19A79A 48%,#2C7CC0 100%); --type-display: 88px; --type-hero: 118px; --type-title: 56px; --type-subtitle: 36px; --type-body: 28px; --type-small: 24px; --type-eyebrow: 24px; --pad-x: 112px; --pad-top: 88px; --pad-bottom: 80px; --gap-title: 34px; --ff-display: &quot;Newsreader&quot;,Georgia,serif; --ff-sans: &quot;IBM Plex Sans&quot;,system-ui,sans-serif; --ff-mono: &quot;IBM Plex Mono&quot;,ui-monospace,monospace;" lang="en"><template shadowrootmode="open"><section class="s-navy" data-label="Closing" data-screen-label="14 Closing" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13" data-deck-last-visible="" style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; pointer-events: none; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; visibility: visible; opacity: 1; transform: scale(0.0692708);">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <img src="./fluxero-logo-white.png" alt="Fluxero" style="height:54px;width:auto" loading="lazy" decoding="async">
+      <div class="eyebrow" style="text-align:right;color:var(--mist)">Investor &amp; Partner Briefing</div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:30px;max-width:1400px;">
+      <div class="accent-bar"></div>
+      <h2 class="display" style="font-size:78px;max-width:21ch;">Clean power is being wasted today. We turn it into hydrogen.</h2>
+      <p class="lede" style="max-width:60ch;">If you build, fund, buy or regulate clean energy or food systems — there's a place for you in this. Investors, partners and offtakers welcome.</p>
+    </div>
+
+    <div class="slidefoot" style="border-top:1px solid var(--line-d);">
+      <div style="display:flex;gap:48px;">
+        <div><div class="eyebrow" style="color:var(--mist)">Web</div><div class="body" style="margin-top:8px;">fluxero.uk</div></div>
+        <div><div class="eyebrow" style="color:var(--mist)">Contact</div><div class="body" style="margin-top:8px;">founders@fluxero.uk</div></div>
+      </div>
+      <div class="pageno" style="color:var(--mist)">14</div>
+    </div>
+  </section></template></div></div></div></div><div class="rail-resize export-hidden" data-omelette-chrome=""></div><div class="stage" style="left: 0px;"><div class="canvas" style="width: 1920px; height: 1080px; --deck-design-w: 1920px; --deck-design-h: 1080px; transform: scale(0.541667);"><slot></slot></div></div><div class="overlay export-hidden" role="toolbar" aria-label="Deck controls" data-omelette-chrome="" style="margin-left: 0px;">
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">14</span><span class="sep">/</span><span class="total">14</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      </div><div class="ctxmenu export-hidden" data-omelette-chrome="">
+        <button type="button" data-act="skip">Skip slide</button>
+        <button type="button" data-act="up">Move up</button>
+        <button type="button" data-act="down">Move down</button>
+        <button type="button" data-act="duplicate">Duplicate slide</button>
+        <hr>
+        <button type="button" data-act="delete">Delete slide</button>
+      </div><div class="confirm-backdrop export-hidden" data-omelette-chrome="">
+        <div class="confirm" role="dialog" aria-modal="true">
+          <div class="body">
+            <div class="title">Delete slide?</div>
+            <div class="msg">This slide will be removed from the deck.</div>
+          </div>
+          <div class="footer">
+            <button type="button" class="cancel">Cancel</button>
+            <button type="button" class="danger">Delete</button>
+          </div>
+        </div>
+      </div></template>
+
+  <!-- 1 — COVER -->
+  <section class="s-navy" data-label="Cover" data-screen-label="01 Cover" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="0">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <img src="./fluxero-logo-white.png" alt="Fluxero" style="height:62px;width:auto">
+      <div class="eyebrow" style="text-align:right;line-height:1.6">Green Hydrogen · Built for global deployment<br><span style="color:var(--mist)">Investor &amp; Partner Briefing — 2026</span></div>
+    </div>
+
+    <div class="anim" style="margin-top:auto;display:flex;flex-direction:column;gap:34px;max-width:1500px;">
+      <div class="accent-bar"></div>
+      <h1 class="display" style="font-size:var(--type-display);max-width:21ch;">Green hydrogen from the energy the grid throws away.</h1>
+      <p class="lede" style="max-width:62ch;">Fluxero deploys Small Modular Hydrogen Plants that capture curtailed wind, solar and hydro — and convert it into green hydrogen, at the source, before the grid can reject it.</p>
+    </div>
+
+    <div class="slidefoot anim2">
+      <div class="src" style="color:var(--mist)">fluxero.uk</div>
+      <div class="src" style="color:var(--mist)">Captured energy. Green hydrogen.</div>
+    </div>
+  </section>
+
+  <!-- 2 — PROBLEM -->
+  <section class="s-paper" data-label="Problem" data-screen-label="02 Problem" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="1">
+    <div class="head">
+      <div class="eyebrow">01 — The Problem</div>
+      <h2 class="title" style="max-width:24ch;">The world is paying to switch clean power off.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:84px;margin-top:56px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <p class="body" style="max-width:42ch;">When wind and solar generate more than the grid can carry, operators pay generators to stop. The clean electricity is simply discarded — and the cost is passed to consumers.</p>
+        <p class="body" style="max-width:42ch;color:var(--ink-soft);">The bottleneck is transmission, not generation — and it is the same story on every fast-growing grid, from Europe to the US, China and Brazil.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);">
+        <div style="display:flex;align-items:baseline;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:78px;min-width:4.6ch;">50+ TWh</div>
+          <div class="small" style="color:var(--ink-soft);max-width:24ch;">of clean power curtailed worldwide in 2024 — about a whole country's annual electricity.</div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:78px;min-width:4.6ch;">€7.2bn</div>
+          <div class="small" style="color:var(--ink-soft);max-width:24ch;">record cost of renewable curtailment across Europe in 2024 alone.</div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding:24px 0;">
+          <div class="num grad-txt" style="font-size:78px;min-width:4.6ch;">Rising</div>
+          <div class="small" style="color:var(--ink-soft);max-width:24ch;">record curtailment set across the US, China, Europe and Brazil in 2024–25.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA; Beyond Fossil Fuels; US EIA; Ember Global Electricity Review (2024–26)</div>
+      <div class="pageno">02</div>
+    </div>
+  </section>
+
+  <!-- 3 — DATA -->
+  <section class="s-navy" data-label="The Data" data-screen-label="03 The Data" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2">
+    <div class="head">
+      <div class="eyebrow">02 — The Data</div>
+      <h2 class="title" style="max-width:22ch;">The scale of the waste is no longer marginal.</h2>
+    </div>
+
+    <div class="anim" style="margin-top:50px;display:flex;align-items:baseline;gap:40px;flex-wrap:wrap;">
+      <div class="num grad-txt" style="font-size:var(--type-hero);">50+ TWh</div>
+      <div class="lede" style="max-width:30ch;margin-bottom:14px;">of clean power curtailed worldwide in 2024 — roughly a whole country's electricity for a year.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border-top:1px solid var(--line-d);">
+      <div style="padding:34px 40px 6px 0;border-right:1px solid var(--line-d);">
+        <div class="num" style="font-size:62px;color:#fff;">€7.2bn</div>
+        <div class="small" style="color:var(--mist);margin-top:14px;max-width:22ch;">record renewable curtailment cost across seven European countries in 2024.</div>
+      </div>
+      <div style="padding:34px 40px 6px 40px;border-right:1px solid var(--line-d);">
+        <div class="num" style="font-size:62px;color:#fff;">~20 TWh</div>
+        <div class="small" style="color:var(--mist);margin-top:14px;max-width:22ch;">of US wind &amp; solar curtailed in 2024 — records in four of seven grid regions.</div>
+      </div>
+      <div style="padding:34px 0 6px 40px;">
+        <div class="num" style="font-size:62px;color:#fff;">20%+</div>
+        <div class="small" style="color:var(--mist);margin-top:14px;max-width:22ch;">of wind &amp; solar curtailed in Brazil's renewable-rich northeast in 2025.</div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA; enline / Beyond Fossil Fuels; Amperon / US EIA (2024–25)</div>
+      <div class="pageno" style="color:var(--mist)">03</div>
+    </div>
+  </section>
+
+  <!-- 4 — MARKET -->
+  <section class="s-paper" data-label="Market" data-screen-label="04 Market" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="3">
+    <div class="head">
+      <div class="eyebrow">03 — The Market</div>
+      <h2 class="title" style="max-width:26ch;">Clean hydrogen demand is global, mandated, and unmet.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:54px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <p class="body" style="max-width:44ch;">The world already runs on hydrogen — almost entirely the dirty kind. Replacing it is a like-for-like market that exists today, before counting new demand in steel, shipping and transport. Roughly 50% of global food supply depends on nitrogen fertilisers derived from hydrogen — making green hydrogen a direct lever on food security.</p>
+        <p class="body" style="max-width:44ch;color:var(--ink-soft);">Governments have set hard low-carbon targets and have no cheap way to supply them. The market exists; the affordable clean supply does not.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">~100 Mt</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">global hydrogen demand in 2024</div>
+        </div>
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">95%+</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">still made from fossil fuels — the displacement opportunity</div>
+        </div>
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">&lt;1 → 49 Mt</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">low-emissions H₂ today vs announced for 2030</div>
+        </div>
+        <div style="background:var(--paper-2);padding:30px 30px;">
+          <div class="num" style="font-size:60px;">~520 GW</div>
+          <div class="small" style="color:var(--ink-soft);margin-top:12px;">of electrolysis capacity announced worldwide</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA Global Hydrogen Review 2024</div>
+      <div class="pageno">04</div>
+    </div>
+  </section>
+
+  <!-- 5 — SOLUTION -->
+  <section class="s-paper-2" data-label="Solution" data-screen-label="05 Solution" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
+    <div class="head">
+      <div class="eyebrow">04 — The Solution</div>
+      <h2 class="title" style="max-width:26ch;">Fluxero puts the plant where the energy is wasted.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:72px;margin-top:48px;align-items:stretch;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 56px;">
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:46px;min-width:1.6ch;">1</div>
+          <div>
+            <div class="body" style="font-weight:600;">Co-locate at constrained sites</div>
+            <div class="small" style="color:var(--ink-soft);margin-top:8px;">A Small Modular Hydrogen Plant is installed beside wind, solar or hydro that is routinely curtailed — no new grid connection required.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:46px;min-width:1.6ch;">2</div>
+          <div>
+            <div class="body" style="font-weight:600;">Capture power that would be switched off</div>
+            <div class="small" style="color:var(--ink-soft);margin-top:8px;">We take the surplus electricity the grid cannot absorb — the cheapest electron there is, because the alternative is discarding it.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <div class="num grad-txt" style="font-size:46px;min-width:1.6ch;">3</div>
+          <div>
+            <div class="body" style="font-weight:600;">Electrolyse on-site, deliver to offtakers</div>
+            <div class="small" style="color:var(--ink-soft);margin-top:8px;">Green hydrogen is produced on-site and supplied to industry and mobility customers — modular units that replicate site by site.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Fluxero — Small Modular Hydrogen Plants, deployed at the source worldwide</div>
+      <div class="pageno">05</div>
+    </div>
+  </section>
+
+  <!-- 6 — UNIT ECONOMICS -->
+  <section class="s-navy" data-label="Economics" data-screen-label="06 Economics" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5">
+    <div class="head">
+      <div class="eyebrow">05 — Unit Economics</div>
+      <h2 class="title" style="max-width:26ch;">Free input electricity changes the economics of hydrogen.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:84px;margin-top:50px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p class="body" style="max-width:40ch;color:#D6E2EA;">Electricity is 60–70% of the cost of making hydrogen. When the input is curtailed power that would otherwise be wasted, that cost collapses.</p>
+        <div>
+          <div class="num grad-txt" style="font-size:96px;">Below $2<span style="font-size:42px;font-family:var(--ff-sans);font-weight:500;">/kg</span></div>
+          <div class="small" style="color:var(--mist);margin-top:6px;max-width:38ch;">the widely-cited competitiveness threshold — reachable when the dominant input cost is near zero, versus $4–12/kg for conventional green hydrogen.</div>
+        </div>
+      </div>
+
+      <!-- cost comparison bars -->
+      <div style="display:flex;flex-direction:column;gap:36px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
+            <span class="small" style="color:var(--mist);white-space:nowrap;">Conventional green H₂</span>
+            <span class="body" style="font-weight:600;">$4–12/kg</span>
+          </div>
+          <div style="height:34px;border-radius:6px;background:rgba(255,255,255,0.12);width:100%;"></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
+            <span class="small" style="color:#fff;white-space:nowrap;">Fluxero — curtailed input</span>
+            <span class="body" style="font-weight:600;">below $2/kg</span>
+          </div>
+          <div style="height:34px;border-radius:6px;background:var(--accent-grad);width:34%;"></div>
+        </div>
+        <div style="border-top:1px solid var(--line-d);padding-top:24px;display:flex;gap:40px;">
+          <div><div class="num" style="font-size:44px;color:#fff;">No queue</div><div class="small" style="color:var(--mist);margin-top:6px;max-width:18ch;">no grid-connection wait</div></div>
+          <div><div class="num" style="font-size:44px;color:#fff;">Modular</div><div class="small" style="color:var(--mist);margin-top:6px;max-width:18ch;">replicates site by site</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Source: IEA; Belfer Center hydrogen cost ranges (2023–24). Figures illustrative.</div>
+      <div class="pageno" style="color:var(--mist)">06</div>
+    </div>
+  </section>
+
+  <!-- 7 — REVENUE -->
+  <section class="s-paper" data-label="Revenue" data-screen-label="07 Revenue" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
+    <div class="head">
+      <div class="eyebrow">06 — Revenue Potential</div>
+      <h2 class="title" style="max-width:26ch;">Multiple revenue lines from a single plant.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px;">
+      <div style="background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:34px 30px;display:flex;flex-direction:column;gap:14px;">
+        <div class="eyebrow" style="font-size:24px;letter-spacing:.16em;">Primary</div>
+        <div class="body" style="font-weight:600;">Hydrogen sales</div>
+        <div class="small" style="color:var(--ink-soft);">Green H₂ supplied to industry and mobility offtakers under contract.</div>
+      </div>
+      <div style="background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:34px 30px;display:flex;flex-direction:column;gap:14px;">
+        <div class="eyebrow" style="font-size:24px;letter-spacing:.16em;">Grid value</div>
+        <div class="body" style="font-weight:600;">Balancing &amp; curtailment</div>
+        <div class="small" style="color:var(--ink-soft);">Absorbing surplus power that the system operator would otherwise pay to discard.</div>
+      </div>
+      <div style="background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:34px 30px;display:flex;flex-direction:column;gap:14px;">
+        <div class="eyebrow" style="font-size:24px;letter-spacing:.16em;">Emerging</div>
+        <div class="body" style="font-weight:600;">Certificates &amp; carbon</div>
+        <div class="small" style="color:var(--ink-soft);">Low-carbon hydrogen and emissions credits as policy frameworks mature.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:52px;margin-top:46px;border-top:1px solid var(--line);padding-top:40px;">
+      <div><div class="num grad-txt" style="font-size:66px;">below $2/kg</div><div class="small" style="color:var(--ink-soft);margin-top:8px;">production cost</div></div>
+      <div class="num" style="font-size:46px;color:var(--ink-soft);">→</div>
+      <div><div class="num" style="font-size:66px;">$4–6/kg</div><div class="small" style="color:var(--ink-soft);margin-top:8px;">indicative green H₂ market price</div></div>
+      <div style="margin-left:auto;max-width:30ch;"><div class="body" style="font-weight:600;">A wide, defensible spread per kilogram — and every new site multiplies it.</div></div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Indicative figures for illustration; market prices vary by offtake and region.</div>
+      <div class="pageno">07</div>
+    </div>
+  </section>
+
+  <!-- 8 — PHYSICAL AI -->
+  <section class="s-navy" data-label="Physical AI" data-screen-label="08 Physical AI" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
+    <div class="head">
+      <div class="eyebrow">07 — Physical AI</div>
+      <h2 class="title" style="max-width:22ch;">The moat isn't the hardware. It's Physical AI.</h2>
+    </div>
+
+    <p class="body" style="max-width:72ch;margin-top:24px;color:#D6E2EA;">The gap between software and the physical world is the hardest problem in technology — the same frontier reshaping robotics. Fluxero is building genuine technique, expertise and IP in <span style="color:#fff;font-weight:600;">Physical AI</span>: machines that sense, decide and act in the real world. That is what makes us defensible — not the steel, but the intelligence inside it.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:28px;margin-top:42px;align-items:stretch;">
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:28px 28px;display:flex;flex-direction:column;gap:12px;">
+        <div class="eyebrow" style="color:var(--teal);">Force 01</div>
+        <div class="body" style="font-weight:600;">AI is starving for power</div>
+        <div class="small" style="color:#C7D6E0;margin-top:auto;">Compute demand is exploding far faster than grids and datacentres can supply.</div>
+      </div>
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:28px 28px;display:flex;flex-direction:column;gap:12px;">
+        <div class="eyebrow" style="color:var(--teal);">Force 02</div>
+        <div class="body" style="font-weight:600;">Clean power is wasted</div>
+        <div class="small" style="color:#C7D6E0;margin-top:auto;">Record volumes of renewable energy are curtailed and thrown away every year.</div>
+      </div>
+      <div style="border:1px solid var(--teal);border-radius:12px;padding:28px 30px;display:flex;flex-direction:column;gap:12px;background:rgba(25,167,154,0.10);">
+        <div class="eyebrow grad-txt">Fluxero closes the loop</div>
+        <div class="body" style="font-weight:600;">A self-optimising plant-robot turns the waste into hydrogen.</div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">It captures the curtailed power, makes versatile green hydrogen, and routes energy into the pockets the grid can't reach — getting smarter every cycle.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;align-items:flex-start;gap:26px;border-top:1px solid var(--line-d);padding-top:28px;">
+      <div class="eyebrow" style="color:var(--mist);white-space:nowrap;padding-top:4px;">The plant-robot</div>
+      <div class="small" style="color:#C7D6E0;max-width:96ch;">Each Small Modular Hydrogen Plant runs on onboard edge AI — it senses, decides and optimises autonomously, without a human in the loop. The Physical-AI wave transforming industrial robotics, pointed squarely at energy.</div>
+    </div>
+
+    <div class="slidefoot" style="margin-top:30px;">
+      <div class="src">Physical AI · onboard edge compute · in active development</div>
+      <div class="pageno" style="color:var(--mist)">08</div>
+    </div>
+  </section>
+
+  <!-- 9 — DIGITAL–PHYSICAL TWIN -->
+  <section class="s-navy" data-label="Digital–Physical Twin" data-screen-label="09 Digital–Physical Twin" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8">
+    <div class="head">
+      <div class="eyebrow">08 — The Digital–Physical Twin</div>
+      <h2 class="title" style="max-width:24ch;">Every plant makes the next one smarter.</h2>
+    </div>
+
+    <p class="body" style="max-width:78ch;margin-top:14px;color:#D6E2EA;">A live digital twin simulates and commands the plant; the plant-robot feeds real-world data back; the twin sharpens itself and re-optimises the plant. Each loop deepens a proprietary dataset — compounding IP that improves Fluxero's models and every future SMHP.</p>
+
+    <div class="twinloop">
+      <div class="tl-node">
+        <div class="eyebrow" style="color:var(--teal);">Digital</div>
+        <div class="body" style="font-weight:600;">The Twin</div>
+        <div class="small" style="color:#C7D6E0;">A live model of the entire site — predicting output before a bolt is turned.</div>
+      </div>
+      <div class="tl-mid">
+        <div class="tl-flow">
+          <div class="tl-lbl">simulate · command · optimise</div>
+          <div class="tl-arrow r"><div class="tl-line"></div><div class="tl-head"></div></div>
+        </div>
+        <div class="tl-core"><span>Compounding<br>dataset &amp; IP</span></div>
+        <div class="tl-flow">
+          <div class="tl-arrow l"><div class="tl-head"></div><div class="tl-line"></div></div>
+          <div class="tl-lbl">sense · measure · feed back</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="eyebrow" style="color:var(--teal);">Physical</div>
+        <div class="body" style="font-weight:600;">The Plant-Robot</div>
+        <div class="small" style="color:#C7D6E0;">Onboard edge AI — it senses, decides and acts on the real site, autonomously.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;">
+      <div class="eyebrow" style="color:var(--mist);">The Physical AI stack</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:16px;">
+        <div class="tool">
+          <div class="eyebrow" style="color:var(--teal);font-size:24px;">01 — Digital twin</div>
+          <div class="body" style="font-weight:600;">Model the whole site online</div>
+          <div class="small" style="color:#C7D6E0;">Accurate output predictions that de-risk deployment and underwrite our projections.</div>
+        </div>
+        <div class="tool">
+          <div class="eyebrow" style="color:var(--teal);font-size:24px;">02 — Geospatial engine</div>
+          <div class="body" style="font-weight:600;">Find the best sites on Earth</div>
+          <div class="small" style="color:#C7D6E0;">Weighs curtailment, resource, demand and logistics to pinpoint where each plant pays off.</div>
+        </div>
+        <div class="tool">
+          <div class="eyebrow" style="color:var(--teal);font-size:24px;">03 — Hydrogen Lake</div>
+          <div class="body" style="font-weight:600;">Stay ahead of the field</div>
+          <div class="small" style="color:#C7D6E0;">A unified base of the world's hydrogen patents, research and science — our intelligence layer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidefoot" style="margin-top:auto;">
+      <div class="src">Digital–physical twin · compounding IP · in active development</div>
+      <div class="pageno" style="color:var(--mist)">09</div>
+    </div>
+  </section>
+
+  <!-- 9 — TRACTION -->
+  <section class="s-paper" data-label="Traction" data-screen-label="10 Traction" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
+    <div class="head">
+      <div class="eyebrow">09 — Traction</div>
+      <h2 class="title" style="max-width:26ch;">What we have built, and what is next.</h2>
+    </div>
+
+    <div style="display:flex;gap:0;margin-top:64px;align-items:stretch;">
+      <div style="flex:1;padding-right:36px;border-right:1px solid var(--line);">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Done</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Software foundations laid</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Built the foundations for all three platforms.</div>
+      </div>
+      <div style="flex:1;padding:0 36px;border-right:1px solid var(--line);">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Done</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Funding secured</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Backed by leading accelerator programmes.</div>
+      </div>
+      <div style="flex:1;padding:0 36px;border-right:1px solid var(--line);">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Done</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Pilot site secured</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Land agreed to validate our first pilot.</div>
+      </div>
+      <div style="flex:1;padding-left:36px;">
+        <div class="eyebrow" style="font-size:24px;">In progress</div>
+        <div class="body" style="font-weight:600;margin-top:16px;">Physical pilot</div>
+        <div class="small" style="color:var(--ink-soft);margin-top:10px;">Validating the plant on the secured site.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;align-items:center;gap:36px;border-top:1px solid var(--line);padding-top:36px;">
+      <div class="eyebrow" style="font-size:24px;color:var(--ink-soft);">Next</div>
+      <div class="body" style="font-weight:600;max-width:52ch;">First commercial site, with offtake agreements in place — turning a validated pilot into a repeatable, financeable asset.</div>
+    </div>
+
+    <div class="slidefoot" style="padding-top:24px;">
+      <div class="src">Stage: prototype &amp; software foundations complete · physical pilot in progress</div>
+      <div class="pageno">10</div>
+    </div>
+  </section>
+
+  <!-- 10 — TRUSTED / SELECTED BY -->
+  <section class="s-navy" data-label="Selected By" data-screen-label="11 Selected By" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
+    <div class="head">
+      <div class="eyebrow">10 — Backing</div>
+      <h2 class="title" style="max-width:26ch;">Selected by world-class ecosystems.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:56px;">
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:42px 36px;display:flex;flex-direction:column;gap:18px;">
+        <div style="font-family:var(--ff-sans);font-weight:700;font-size:38px;">NVIDIA<span style="font-weight:400;color:var(--mist);"> Inception</span></div>
+        <div class="accent-bar" style="width:84px;"></div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">AI compute and engineering resources powering our digital-twin and data platforms.</div>
+      </div>
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:42px 36px;display:flex;flex-direction:column;gap:18px;">
+        <div style="font-family:var(--ff-sans);font-weight:700;font-size:38px;">Barclays<span style="font-weight:400;color:var(--mist);"> Eagle Labs</span></div>
+        <div class="accent-bar" style="width:84px;"></div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">Scale-up support, investor access and the financial network to deploy capital-efficient infrastructure.</div>
+      </div>
+      <div style="border:1px solid var(--line-d);border-radius:12px;padding:42px 36px;display:flex;flex-direction:column;gap:18px;">
+        <div style="font-family:var(--ff-sans);font-weight:700;font-size:38px;">Google<span style="font-weight:400;color:var(--mist);"> for Startups</span></div>
+        <div class="accent-bar" style="width:84px;"></div>
+        <div class="small" style="color:#D6E2EA;margin-top:auto;">Cloud infrastructure, mentorship and reach to build and scale our software.</div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Programme participation. Logos belong to their respective owners.</div>
+      <div class="pageno" style="color:var(--mist)">11</div>
+    </div>
+  </section>
+
+  <!-- 11 — UNFAIR ADVANTAGE -->
+  <section class="s-paper" data-label="Advantage" data-screen-label="12 Advantage" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11">
+    <div class="head">
+      <div class="eyebrow">11 — Unfair Advantage</div>
+      <h2 class="title" style="max-width:24ch;">Why Fluxero is hard to copy.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px 64px;margin-top:50px;">
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">01</div>
+        <div><div class="body" style="font-weight:600;">Plug into the waste, not the grid</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">At-source siting sidesteps the multi-year grid-connection queue that blocks competitors.</div></div>
+      </div>
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">02</div>
+        <div><div class="body" style="font-weight:600;">Modular &amp; capital-light</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">A standard unit replicates across hundreds of constrained sites — each a financeable asset.</div></div>
+      </div>
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">03</div>
+        <div><div class="body" style="font-weight:600;">A proprietary data layer</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">The Hydrogen Lake compounds: better siting, operations and demand intelligence over time.</div></div>
+      </div>
+      <div style="display:flex;gap:26px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:24px;">
+        <div class="num grad-txt" style="font-size:40px;">04</div>
+        <div><div class="body" style="font-weight:600;">Timing on our side</div><div class="small" style="color:var(--ink-soft);margin-top:8px;max-width:42ch;">Curtailment is accelerating on every major grid worldwide — a first-mover into a widening, global problem.</div></div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">fluxero.uk</div>
+      <div class="pageno">12</div>
+    </div>
+  </section>
+
+  <!-- 12 — BUSINESS PLAN & FINANCES -->
+  <section class="s-navy" data-label="Plan" data-screen-label="13 Plan" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12">
+    <div class="head">
+      <div class="eyebrow">12 — Business Plan &amp; Finances</div>
+      <h2 class="title" style="max-width:24ch;">Prove one, then replicate.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:54px;">
+      <div style="display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-d);padding-top:26px;">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Now</div>
+        <div class="body" style="font-weight:600;">Pilot &amp; validate</div>
+        <div class="small" style="color:var(--mist);max-width:30ch;">Run the pilot plant, lock in real-world LCOH and uptime data.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-d);padding-top:26px;">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">12–18 months</div>
+        <div class="body" style="font-weight:600;">First commercial site</div>
+        <div class="small" style="color:var(--mist);max-width:30ch;">Deploy at a constrained site with offtake agreements signed.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-d);padding-top:26px;">
+        <div class="eyebrow" style="font-size:24px;color:var(--teal);">Scale</div>
+        <div class="body" style="font-weight:600;">Fleet rollout</div>
+        <div class="small" style="color:var(--mist);max-width:30ch;">Replicate modular plants across constrained sites worldwide.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;gap:64px;align-items:flex-end;border-top:1px solid var(--line-d);padding-top:36px;">
+      <div style="max-width:46ch;">
+        <div class="body" style="font-weight:600;color:#fff;">The financial model is repetition, not one big bet.</div>
+        <div class="small" style="color:var(--mist);margin-top:10px;">Each plant is a standard, capital-light, individually financeable unit. Margins are protected by an input cost near zero; growth comes from adding sites, not reinventing the asset.</div>
+      </div>
+      <div style="margin-left:auto;text-align:right;">
+        <div class="small" style="color:var(--mist);">Currently engaging investors &amp; partners</div>
+        <div class="body grad-txt" style="font-weight:600;margin-top:6px;">to fund first commercial deployment.</div>
+      </div>
+    </div>
+
+    <div class="slidefoot">
+      <div class="src">Forward-looking plan; subject to pilot results and funding.</div>
+      <div class="pageno" style="color:var(--mist)">13</div>
+    </div>
+  </section>
+
+  <!-- 13 — CLOSING -->
+  <section class="s-navy" data-label="Closing" data-screen-label="14 Closing" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13" data-deck-last-visible="" data-deck-active="">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <img src="./fluxero-logo-white.png" alt="Fluxero" style="height:54px;width:auto">
+      <div class="eyebrow" style="text-align:right;color:var(--mist)">Investor &amp; Partner Briefing</div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:30px;max-width:1400px;">
+      <div class="accent-bar"></div>
+      <h2 class="display" style="font-size:78px;max-width:21ch;">Clean power is being wasted today. We turn it into hydrogen.</h2>
+      <p class="lede" style="max-width:60ch;">If you build, fund, buy or regulate clean energy or food systems — there's a place for you in this. Investors, partners and offtakers welcome.</p>
+    </div>
+
+    <div class="slidefoot" style="border-top:1px solid var(--line-d);">
+      <div style="display:flex;gap:48px;">
+        <div><div class="eyebrow" style="color:var(--mist)">Web</div><div class="body" style="margin-top:8px;">fluxero.uk</div></div>
+        <div><div class="eyebrow" style="color:var(--mist)">Contact</div><div class="body" style="margin-top:8px;">founders@fluxero.uk</div></div>
+      </div>
+      <div class="pageno" style="color:var(--mist)">14</div>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="./deck-stage.js"></script>
+<script src="./image-slot.js"></script>
+
+
+</body></html>
