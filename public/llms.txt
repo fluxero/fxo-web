@@ -1,0 +1,27 @@
+# Fluxero
+
+> Fluxero converts curtailed (wasted) renewable energy into green hydrogen at the source using Small Modular Hydrogen Plants (SMHPs), optimised by a physics-based digital twin. The technology is deployable worldwide.
+
+Every year, grids curtail enormous amounts of clean wind, solar and hydro power because it cannot be used or transmitted in the moment. Fluxero captures that otherwise-wasted electricity on-site and converts it into green hydrogen, turning a grid liability into a delivered fuel.
+
+## What Fluxero builds
+- **Small Modular Hydrogen Plant (SMHP):** a self-contained on-site package — renewable energy source intake, electrolyser, and hydrogen storage with containerisation. The electrolyser is the heart of every SMHP, splitting water (H2O -> H2 + O2) using the captured electricity.
+- **Digital twin:** a live, physics-based mirror of every real plant that optimises operations and forecasts hydrogen output, de-risks the process through simulation, and bridges software/AI to hardware for maximum output.
+
+## Pages
+- [Home](https://fluxero.uk/): Overview of the problem, solution and partners.
+- [The Problem](https://fluxero.uk/problem): Why clean energy gets wasted (curtailment) every year.
+- [Our Solution](https://fluxero.uk/solution): Small Modular Hydrogen Plants that capture energy at the source.
+- [Business Model](https://fluxero.uk/business): Unit economics, ROI and how Fluxero scales like software.
+- [Traction](https://fluxero.uk/traction): Programmes, partners and proof points.
+- [Calculator](https://fluxero.uk/calculator): Estimate hydrogen output and economics.
+- [Team](https://fluxero.uk/team): The people behind Fluxero.
+- [Contact](https://fluxero.uk/contact): Get in touch.
+- [Pitch Deck](https://fluxero.uk/pitchdeck): Investor and partner briefing.
+
+## Key facts
+- Category: green/renewable hydrogen production from curtailed energy.
+- Core product: Small Modular Hydrogen Plant (SMHP) — source + electrolyser + hydrogen storage on site.
+- Differentiator: a physics-based digital twin that optimises, forecasts and de-risks production.
+- Backed by / in partnership with: NVIDIA Inception, Barclays Eagle Labs, Google for Startups, Durham University.
+- Website: https://fluxero.uk

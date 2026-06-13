@@ -296,7 +296,7 @@ export const Contact: React.FC = () => {
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="Fluxero" className="h-6 w-auto object-contain opacity-60"
               onError={e => ((e.target as HTMLImageElement).style.display = 'none')} />
-            <span className="font-mono text-base text-steel">© 2025 Fluxero Ltd · United Kingdom</span>
+            <span className="font-mono text-base text-steel">© 2025 Fluxero Ltd</span>
           </div>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             <a href="mailto:founders@fluxero.uk"

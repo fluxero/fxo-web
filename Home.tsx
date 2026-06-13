@@ -18,9 +18,11 @@ export default function Home() {
   return (
     <>
       <Hero />
+      {/* Partners moved up — credibility ("Backed by & in partnership with")
+          appears before the "How it works" section. */}
+      <Partners />
       <ProcessChips />
       <EnergyExplainer />
-      <Partners />
 
       {/* Explore section */}
       <section style={{ background: '#0D0C0F', padding: '6rem 0' }}>

@@ -130,7 +130,7 @@
 </style>
 <style id="deck-stage-print-page">@page { size: 1920px 1080px; margin: 0; } @media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } *, *::before, *::after { animation-delay: -99s !important; animation-duration: .001s !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; animation-play-state: running !important; transition-duration: 0s !important; } }</style></head>
 <body>
-<deck-stage width="1920" height="1080" style="--deck-rail-w: 188px;"><template shadowrootmode="open"><style>
+<deck-stage no-rail width="1920" height="1080" style="--deck-rail-w: 0px;"><template shadowrootmode="open"><style>
     :host {
       position: fixed;
       inset: 0;
@@ -1542,5 +1542,40 @@
 <script src="./deck-stage.js"></script>
 <script src="./image-slot.js"></script>
 
+<!-- Sidebar hidden (no-rail). Navigation: phones use the deck's native tap
+     left/right; laptops/desktops get these clickable arrow buttons (and arrow
+     keys / space / PageUp-Down also work). -->
+<style>
+  .fx-nav{position:fixed;top:0;bottom:0;width:11%;min-width:64px;display:flex;
+    align-items:center;border:0;background:transparent;cursor:pointer;z-index:60;
+    color:#fff;opacity:.28;transition:opacity .2s ease;-webkit-tap-highlight-color:transparent;}
+  .fx-nav:hover{opacity:.92;}
+  .fx-prev{left:0;justify-content:flex-start;padding-left:20px;}
+  .fx-next{right:0;justify-content:flex-end;padding-right:20px;}
+  .fx-nav svg{width:40px;height:40px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.55));}
+  /* On touch devices, rely on the deck's native tap-to-navigate instead. */
+  @media (hover:none) and (pointer:coarse){.fx-nav{display:none;}}
+  @media print{.fx-nav{display:none;}}
+</style>
+<button class="fx-nav fx-prev" aria-label="Previous slide">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+</button>
+<button class="fx-nav fx-next" aria-label="Next slide">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+<script>
+  (function () {
+    var ds = document.querySelector('deck-stage');
+    function go(dir) {
+      if (!ds) return;
+      if (dir > 0 && typeof ds.next === 'function') ds.next();
+      else if (dir < 0 && typeof ds.prev === 'function') ds.prev();
+    }
+    var prev = document.querySelector('.fx-prev');
+    var next = document.querySelector('.fx-next');
+    if (prev) prev.addEventListener('click', function (e) { e.stopPropagation(); go(-1); });
+    if (next) next.addEventListener('click', function (e) { e.stopPropagation(); go(1); });
+  })();
+</script>
 
 </body></html>

@@ -562,7 +562,7 @@ export const Hero: React.FC = () => {
         >
           <div style={{ width: 24, height: 1, background: '#00D68F' }} />
           <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: 13, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#00D68F' }}>
-            Green Hydrogen · UK
+            Green Hydrogen · Global
           </span>
           <div style={{ width: 24, height: 1, background: '#00D68F' }} />
         </motion.div>
