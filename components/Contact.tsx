@@ -294,7 +294,7 @@ export const Contact: React.FC = () => {
         <div className="border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
           style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Fluxero" className="h-6 w-auto object-contain opacity-60"
+            <img src="/fluxero-logo.svg" alt="Fluxero" className="h-6 w-auto object-contain opacity-60"
               onError={e => ((e.target as HTMLImageElement).style.display = 'none')} />
             <span className="font-mono text-base text-steel">© 2025 Fluxero Ltd</span>
           </div>

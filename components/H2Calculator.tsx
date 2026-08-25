@@ -633,7 +633,7 @@ function ResultsScreen({results,inputs,onBack}: any) {
     <div className="h2-calc-shell" style={{display:"flex",height:"100%",overflow:"hidden",background:C.bg0}}>
       {/* Sidebar */}
       <div className="h2-calc-sidebar" style={{width:240,background:C.bg1,borderRight:`1px solid ${C.border}`,padding:"24px 20px",display:"flex",flexDirection:"column",flexShrink:0,overflowY:"auto"}}>
-        <img src="./logo.png" alt="Fluxero" style={{height:24,objectFit:"contain",marginBottom:24,opacity:0.9}} onError={(e)=>{(e.target as HTMLImageElement).style.display="none";}} />
+        <img src="/fluxero-logo.svg" alt="Fluxero" style={{height:24,objectFit:"contain",marginBottom:24,opacity:0.9}} onError={(e)=>{(e.target as HTMLImageElement).style.display="none";}} />
         <div style={{fontSize:18,fontWeight:800,color:C.white,marginBottom:4,fontFamily:"'Syne',sans-serif"}}>Results</div>
         <div style={{fontSize:13,color:C.grey,marginBottom:16}}>📍 {results.locationLabel}</div>
         {[
@@ -766,7 +766,7 @@ function ResultsScreen({results,inputs,onBack}: any) {
 function Loading({pct,msg}: {pct:number;msg:string}) {
   return (
     <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",background:C.bg0,padding:40}}>
-      <img src="./logo.png" alt="Fluxero" style={{height:22,objectFit:"contain",marginBottom:32,opacity:0.9}} onError={(e)=>{(e.target as HTMLImageElement).style.display="none";}} />
+      <img src="/fluxero-logo.svg" alt="Fluxero" style={{height:22,objectFit:"contain",marginBottom:32,opacity:0.9}} onError={(e)=>{(e.target as HTMLImageElement).style.display="none";}} />
       <div style={{fontSize:18,fontWeight:700,color:C.white,marginBottom:6,fontFamily:"'Syne',sans-serif"}}>Computing your site...</div>
       <div style={{fontSize:14,color:C.grey,marginBottom:24,textAlign:"center",minHeight:20}}>{msg}</div>
       <div style={{width:280,height:4,background:C.bg3,borderRadius:2,overflow:"hidden"}}>
@@ -876,7 +876,7 @@ export const H2Calculator: React.FC = () => {
     <div className="h2-calc-shell" style={{display:"flex",height:"100%",background:C.bg0}}>
       {/* Sidebar */}
       <div className="h2-calc-sidebar" style={{width:220,background:C.bg1,borderRight:`1px solid ${C.border}`,padding:"28px 20px",display:"flex",flexDirection:"column",position:"sticky",top:0,height:"100%",flexShrink:0}}>
-        <img src="./logo.png" alt="Fluxero" style={{height:20,objectFit:"contain",marginBottom:4,opacity:0.9}} onError={(e)=>{(e.target as HTMLImageElement).style.display="none";}} />
+        <img src="/fluxero-logo.svg" alt="Fluxero" style={{height:20,objectFit:"contain",marginBottom:4,opacity:0.9}} onError={(e)=>{(e.target as HTMLImageElement).style.display="none";}} />
         <div style={{fontSize:10,color:C.grey,marginBottom:28,fontFamily:"'IBM Plex Mono',monospace"}}>H₂ DESIGN ENGINE</div>
         <div style={{fontSize:15,fontWeight:700,color:C.white,marginBottom:6,fontFamily:"'Syne',sans-serif"}}>Site Calculator</div>
         <div style={{fontSize:13,color:C.grey,lineHeight:1.8,marginBottom:24}}>Postcode-specific UK data. Real physics. No internet required.</div>

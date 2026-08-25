@@ -45,7 +45,7 @@ export const Splash: React.FC<{ onDone: () => void }> = ({ onDone }) => {
             transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
           >
             <img
-              src="/logo.png"
+              src="/fluxero-logo.svg"
               alt="Fluxero"
               style={{
                 display: 'block',

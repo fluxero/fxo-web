@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
 
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <img src="/logo.png" alt="Fluxero" style={{ height: 40, width: 'auto', objectFit: 'contain' }}
+          <img src="/fluxero-logo.svg" alt="Fluxero" style={{ height: 40, width: 'auto', objectFit: 'contain' }}
             onError={e => {
               (e.target as HTMLImageElement).style.display = 'none';
               const span = document.createElement('span');
